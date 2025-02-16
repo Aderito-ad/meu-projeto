@@ -31,7 +31,7 @@ document.getElementById('cadastroForm').addEventListener('submit', function(even
 
     // Definindo a URL do backend
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    const backendURL = isLocal ? 'http://localhost:5500/cadastrar' : 'https://seusite.vercel.app/cadastrar';
+    const backendURL = isLocal ? 'http://localhost:5500/cadastrar' : 'https://soterio55.vercel.app/cadastrar';
 
     console.log('URL do backend:', backendURL);
 
