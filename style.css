@@ -1,0 +1,180 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+    padding: 20px; /* Adicionado para espaçamento em telas pequenas */
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #2575fc;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #2575fc;
+    box-shadow: 0 0 8px rgba(37, 117, 252, 0.3);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#resultado {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #2575fc;
+    padding: 10px;
+    background-color: #e9f5ff;
+    border-radius: 6px;
+    border: 1px solid #2575fc;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input {
+        padding: 9px;
+        font-size: 13px;
+    }
+
+    button {
+        padding: 11px;
+        font-size: 15px;
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+    body {
+        padding: 10px; /* Reduz o padding em telas muito pequenas */
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #resultado {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Responsividade para telas muito pequenas (ex: iPhone SE) */
+@media (max-width: 320px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    input {
+        padding: 7px;
+        font-size: 11px;
+    }
+
+    button {
+        padding: 9px;
+        font-size: 13px;
+    }
+
+    #resultado {
+        font-size: 12px;
+        padding: 6px;
+    }
+}
