@@ -19,6 +19,12 @@ document.getElementById('cadastroForm').addEventListener('submit', function(even
         return;
     }
 
+    // Validar email
+    if (!validateEmail(email)) {
+        alert('Por favor, insira um email válido.');
+        return;
+    }
+
     // Criando o objeto com os dados do formulário
     const formData = {
         nome: nome,
@@ -31,9 +37,14 @@ document.getElementById('cadastroForm').addEventListener('submit', function(even
 
     // Definindo a URL do backend
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    const backendURL = isLocal ? 'http://localhost:5500/cadastrar' : 'https://soterio55.vercel.app/cadastrar';
+    const backendURL = isLocal ? 'http://localhost:5500/cadastrar' : 'https://sorteio55.vercel.app/cadastrar';
 
     console.log('URL do backend:', backendURL);
+
+    // Desabilitar o botão de envio durante a requisição
+    const submitButton = document.querySelector('#cadastroForm button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.innerText = 'Enviando...';
 
     // Enviando os dados para o servidor
     fetch(backendURL, {
@@ -57,7 +68,18 @@ document.getElementById('cadastroForm').addEventListener('submit', function(even
     })
     .catch(error => {
         console.error('Erro:', error);
-        document.getElementById('resultado').innerText = 'Erro ao cadastrar. Verifique o console para mais detalhes.';
+        document.getElementById('resultado').innerText = 'Erro ao cadastrar. Por favor, tente novamente mais tarde.';
         document.getElementById('resultado').style.color = 'red';
+    })
+    .finally(() => {
+        // Reabilitar o botão de envio após a requisição
+        submitButton.disabled = false;
+        submitButton.innerText = 'Cadastrar';
     });
 });
+
+// Função para validar email
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+}
